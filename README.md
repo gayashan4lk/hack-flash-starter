@@ -1,0 +1,49 @@
+# hack-flash
+
+```http
+POST /api/vehicle/register
+
+#request
+{
+    vehicleType: "CAR",
+    licencePlate: "ABC-2323"
+}
+
+#response
+{
+    "registered": true
+}
+
+POST /api/fuel/request
+
+#request
+{
+    "licencePlate": "ABC-2323",
+    "amount": 10,
+    "date": "2023-04-23"
+}
+
+#response
+{
+    "used" : 10,
+    "remaining": 10
+}
+
+DELETE /api/fuel/reset
+
+GET /api/vehicle/types
+
+#response
+[
+    {
+        id: 1,
+        name: "CAR",
+        quota: 23
+    },
+    {
+        id: 1,
+        name: "BUS",
+        quota: 23
+    }
+]
+```
