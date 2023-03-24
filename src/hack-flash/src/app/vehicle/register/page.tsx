@@ -1,28 +1,28 @@
-import { VehicleType } from "@/domain/VehicleType";
-import { Form } from "./Form";
-import styles from "./page.module.css";
+import { VehicleType } from '@/domain/VehicleType';
+import { Form } from './Form';
+import styles from './page.module.css';
 
 const fetchTypes = async (): Promise<VehicleType[]> => {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-    const respone = await fetch(`${baseUrl}/api/vehicle/types`);
-    if (respone.ok) {
-      return respone.json();
-    } else {
-      return [];
-    }
-  } catch (error) {
-    return [];
-  }
+	try {
+		const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+		const respone = await fetch(`${baseUrl}/api/vehicle/types`);
+		if (respone.ok) {
+			return respone.json();
+		} else {
+			return [];
+		}
+	} catch (error) {
+		return [];
+	}
 };
-
+//comment
 export default async function Home() {
-  const types = await fetchTypes();
+	const types = await fetchTypes();
 
-  return (
-    <main className={styles.main}>
-      <div className={styles.clHeader}>Bistec Fuel Pass</div>
-      <Form types={types} />
-    </main>
-  );
+	return (
+		<main className={styles.main}>
+			<div className={styles.clHeader}>Bistec Fuel Pass</div>
+			<Form types={types} />
+		</main>
+	);
 }
