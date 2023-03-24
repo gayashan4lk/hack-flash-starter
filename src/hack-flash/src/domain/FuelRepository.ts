@@ -4,10 +4,10 @@ import { deleteAllRequests, findVehicle, addFuelRequest } from './FirebaseApp';
 export class FuelRepository {
 	async insert(fuelRequest: FuelRequest): Promise<boolean> {
 		if (await this.checkExists(fuelRequest.licensePlate)) {
-			return false;
-		} else {
 			addFuelRequest(fuelRequest);
 			return true;
+		} else {
+			return false;
 		}
 	}
 
