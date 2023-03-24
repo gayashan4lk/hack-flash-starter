@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: hack
-        uses: bistecglobal/hack-flash-action@v2.2
+        uses: bistecglobal/hack-flash-action@v2.3
         with:
           base-app-url: ${{ secrets.VERCEL_APP_URL }}
           base-api-url: ${{ secrets.VERCEL_APP_URL }}
