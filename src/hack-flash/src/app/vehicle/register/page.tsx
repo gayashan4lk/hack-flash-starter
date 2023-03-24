@@ -15,13 +15,13 @@ const fetchTypes = async (): Promise<VehicleType[]> => {
 		return [];
 	}
 };
-//comment
+
 export default async function Home() {
 	const types = await fetchTypes();
 
 	return (
 		<main className={styles.main}>
-			<div className={styles.clHeader}>Bistec Fuel Pass</div>
+			{/* <div className={styles.clHeader}>Bistec Fuel Pass</div> */}
 			<Form types={types} />
 		</main>
 	);
