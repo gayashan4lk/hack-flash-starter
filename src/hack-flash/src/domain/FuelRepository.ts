@@ -1,7 +1,9 @@
 import { FuelRequest } from './FuelRequest';
+import { deleteAllRequests } from './FirebaseApp';
 
 export class FuelRepository {
-	async delete(): Promise<void> {
-		console.log('FuelRepository.delete()');
+	async delete(): Promise<boolean> {
+		deleteAllRequests();
+		return true;
 	}
 }
