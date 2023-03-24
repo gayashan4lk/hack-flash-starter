@@ -9,10 +9,11 @@ import { useRouter } from 'next/navigation';
 import { FormEvent } from 'react';
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
+import { FuelResponse } from '@/domain/FuelResponse';
 
 const submitRequest = async (
 	fuelRequest: FuelRequest
-): Promise<{ registered: boolean }> => {
+): Promise<{ fuelResponse: FuelResponse }> => {
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 	const respone = await fetch(`${baseUrl}/api/fuel/request`, {
 		method: 'POST',
@@ -38,8 +39,12 @@ export function FuelRequestForm() {
 			amount: target.amount.value,
 			date: startDate,
 		};
-		const resp = await submitRequest(fuelRequest);
-		console.log(resp);
+		try {
+			const resp = await submitRequest(fuelRequest);
+			console.log(resp);
+		} catch (error) {
+			console.log(error);
+		}
 		// if (resp.registered) {
 		// 	router.push('/vehicle/register/success');
 		// } else {
