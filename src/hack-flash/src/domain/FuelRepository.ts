@@ -1,13 +1,18 @@
 import { FuelRequest } from './FuelRequest';
+import { FuelResponse } from './FuelResponse';
 import { deleteAllRequests, findVehicle, addFuelRequest } from './FirebaseApp';
 
 export class FuelRepository {
-	async insert(fuelRequest: FuelRequest): Promise<boolean> {
+	async requestFuel(fuelRequest: FuelRequest): Promise<FuelResponse> {
 		if (await this.checkExists(fuelRequest.licensePlate)) {
 			addFuelRequest(fuelRequest);
-			return true;
+			let fuelResponse: FuelResponse = {
+				used: 0,
+				remaining: 0,
+			};
+			return fuelResponse;
 		} else {
-			return false;
+			throw new Error('Vehicle does not exist');
 		}
 	}
 

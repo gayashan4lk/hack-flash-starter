@@ -4,11 +4,11 @@ import { FuelRepository } from '@/domain/FuelRepository';
 export async function POST(request: Request) {
 	const data: FuelRequest = await request.json();
 	const fuelRepository = new FuelRepository();
-	const requested = await fuelRepository.insert(data);
+	const result = await fuelRepository.requestFuel(data);
 
 	return new Response(
 		JSON.stringify({
-			requested,
+			result,
 		}),
 		{
 			status: 200,

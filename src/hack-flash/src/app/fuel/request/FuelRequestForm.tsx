@@ -21,7 +21,7 @@ const submitRequest = async (
 	return respone.json();
 };
 
-export function Form() {
+export function FuelRequestForm() {
 	const [startDate, setStartDate] = useState(new Date());
 
 	const router = useRouter();

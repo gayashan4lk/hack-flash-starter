@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { VehicleType } from '@/domain/VehicleType';
 import styles from './page.module.css';
-import { Form } from './Form';
+import { FuelRequestForm } from './FuelRequestForm';
 
 const fetchTypes = async (): Promise<VehicleType[]> => {
 	try {
@@ -28,7 +28,7 @@ export default function Home() {
 
 	return (
 		<main className={styles.main}>
-			<Form />
+			<FuelRequestForm />
 		</main>
 	);
 }
