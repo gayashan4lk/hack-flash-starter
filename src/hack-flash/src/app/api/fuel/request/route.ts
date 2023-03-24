@@ -1,14 +1,14 @@
 import { FuelRequest } from '@/domain/FuelRequest';
+import { FuelRepository } from '@/domain/FuelRepository';
 
 export async function POST(request: Request) {
 	const data: FuelRequest = await request.json();
-	console.log(data);
+	const fuelRepository = new FuelRepository();
+	const requested = await fuelRepository.insert(data);
 
 	return new Response(
 		JSON.stringify({
-			licensePlage: data.licensePlate,
-			amount: data.amount,
-			date: data.date,
+			requested,
 		}),
 		{
 			status: 200,

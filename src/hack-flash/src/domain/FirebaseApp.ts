@@ -33,6 +33,12 @@ export async function registerVehicle(vehicle: Vehicle) {
 	return docRef;
 }
 
+export async function addFuelRequest(fuelRequest: FuelRequest) {
+	// Add a new document in collection "vehicles"
+	const docRef = await addDoc(collection(db, 'fuelRequest'), fuelRequest);
+	return docRef;
+}
+
 export async function findVehicle(licensePlate: string) {
 	// Add a new document in collection "vehicles"
 
